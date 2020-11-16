@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 11
+
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+sourceSets {
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+
+    testImplementation 'com.github.hyperskill:hs-test:v7.2'
+}
